@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="./js/code.jquery.com_jquery-1.10.0.js"></script> <!-- 다운로드 방식 -->
+    <!-- <script src="https://code.jquery.com/jquery-1.10.0.js"></script> // cdn 방식 -->
+    <script>
+        $(document).ready(function() {       // 페이지 로딩이 완료되기 전에 사용할시
+            $("#kim").text("바보");
+        });
+        $(document).ready(function() {
+            ani();
+        });
+        function ani(){
+            $("#park").html("<span style='color:red'>천사</span>");
+        }
+    </script>
+</head>
+<body>
+    <div id="kim"></div>
+    <div id="lee"></div>
+    <div id="park"></div>
+    <script>
+        $(function() {  // 페이지가 로딩이 완료될시 사용하기 위해
+            $("#lee").text("안녕");
+        });
+    </script>
+    <div id="menu">
+        <ul class="list">
+            <li>아이템1</li>
+            <li>아이템2</li>
+            <li>아이템3</li>
+            <li>아이템4</li>
+            <li>아이템5</li>
+        </ul>
+        <button id="btn1">요소 추가</button>
+    </div>
+    <script>
+        $(function(){
+
+            // 기본 문법
+            // $("선택자").메소드();
+            // $(객체).속성;
+
+            $(".list li").click(function(){
+                alert($(this).text());
+            });
+
+            var sw = true;
+            $("#btn1").click(function(){
+                if(sw) {
+                    $("#park").text("악당");
+                } else {
+                    $("#park").html("<span style='color:red'>천사</span>");
+                }
+                sw = !sw;
+                
+                var len = $(".list li").length + 1;
+                $(".list").append("<li>아이템" + len + "</li>");   // 추가
+                $(".list li").css("color", "black");
+                $(".list li:last-child").css("color", "blue");
+            });
+        });
+    </script>
+</body>
+</html>
