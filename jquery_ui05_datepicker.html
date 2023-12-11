@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI datepicker</title>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; }
+        table { font-size: 1em; }
+        .title { color:#11c9fc; font-size:48px;  text-align: center; }
+        .ui-draggable, .ui-droppable { background-position: top; }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#date1, #date2, #date3").datepicker();
+            $("#anim").on("change", function(){
+                $("#date2").datepicker("option", "showAnim", $(this).val());
+            });
+        })
+  </script>
+</head>
+<body>
+  <h2 class="title">datepicker</h2>
+  <hr>
+  <div class="widget">
+        <div>
+            <h3>달력1</h3>
+            <label for="date1">Date</label>
+            <input type="date" name="date1" id="date1"/>
+        </div>
+        <hr />
+        <div>
+            <h3>달력2</h3>
+            <label for="date2">Date</label>
+            <input type="text" name="date2" id="date2"/>
+            <select name="anim" id="anim">
+                <option value="show">show</option>
+                <option value="slideDown">slideDown</option>
+                <option value="fadeIn">fadeIn</option>
+                <option value="bounce">bounce</option>
+                <option value="clip">clip</option>
+                <option value="drop">drop</option>
+                <option value="fold">fold</option>
+                <option value="slide">slide</option>
+            </select>
+        </div>
+        <hr />
+        <div>
+            <h3>달력3</h3>
+            <label for="date3">Date</label>
+            <div id="date3"></div>
+        </div>
+  </div>
+</body>
+</html>
